@@ -1,0 +1,1 @@
+sap.ui.define(["zsapvacaciones./solic_vacaciones/controller/Vacaciones_Main.controller"],function(n){"use strict";QUnit.module("Vacaciones_Main Controller");QUnit.test("I should test the Vacaciones_Main controller",function(o){var c=new n;c.onInit();o.ok(c)})});

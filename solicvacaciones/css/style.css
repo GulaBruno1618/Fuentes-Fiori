@@ -1,0 +1,21 @@
+.cssMain .circle1 {
+    border: solid #505050 5px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.cssMain .circle2 {
+    border: solid #f59c00 3px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.cssMain .cuadro1 {
+    border: solid #f59c00 4px;
+}
+
+.cssMain .cuadro2 {
+    border: solid #ff9d0b 4px;
+}

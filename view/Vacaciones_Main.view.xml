@@ -1,0 +1,143 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+xmlns:core="sap.ui.core"
+ xmlns="sap.m" 
+ controllerName="zsap.vacaciones.solicvacaciones.controller.Vacaciones_Main" 
+ displayBlock="true"
+ class="cssMain"
+ xmlns:u="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <VBox>
+                         <Panel  headerText="Datos Empleado"  backgroundDesign="Solid"  class="Origen" expandable="true" expanded="true">
+				          <FlexBox width="90%" id="box5" backgroundDesign="Solid">
+				                <items>
+                                 <HBox width="140px" id="hboxa0" alignItems="Center" alignContent="Center">
+				                  <items><Label text="Vacaciones de:" width="100%" id="labelu" textAlign="Center" vAlign="Middle"/></items>
+				                 </HBox>
+                                 <HBox width="150px" id="hboxc0" alignItems="Center" alignContent="Center">
+				                  <items><Input xmlns="sap.m" id="IUsuario" width="100px" editable="false"/></items>
+				                 </HBox>
+                                 <HBox width="350px" id="hboxa6" alignItems="Start" alignContent="Start">
+				                  <items><Input xmlns="sap.m" id="INombre" width="300px" editable="false"/></items>
+				                 </HBox>
+				             </items>                                
+				            </FlexBox>
+				          <FlexBox width="90%" id="box15" backgroundDesign="Solid">
+                             <items>
+                                 <HBox width="240px" id="hboxa19" alignItems="Center" alignContent="Center">
+				                  <items><Label text="Cantidad de días de vacaciones:" width="100%" id="labelvac" textAlign="Center" vAlign="Middle"/></items>
+				                 </HBox>
+                                 <HBox width="100px" id="hboxc19" alignItems="Center" alignContent="Center">
+				                  <items><Input xmlns="sap.m" id="IVacac" width="30px" editable="false"/></items>
+				                 </HBox>
+                                 <HBox width="240px" id="hboxa29" alignItems="Center" alignContent="Center">
+				                  <items><Label text="Días pendiente de aprobación:" width="100%" id="labelsol" textAlign="Center" vAlign="Middle"/></items>
+				                 </HBox>
+                                 <HBox width="100px" id="hboxc29" alignItems="Center" alignContent="Center">
+				                  <items><Input xmlns="sap.m" id="ISaldo" width="30px" editable="false"/></items>
+				                 </HBox>
+                                 <HBox width="240px" id="hboxa34" alignItems="Center" alignContent="Center">
+				                  <items><Label text="Días Disponibles para cargar:" width="100%" id="labeldis" textAlign="Center" vAlign="Middle"/></items>
+				                 </HBox>
+                                <FlexBox id="flexsem1" class="circle1" justifyContent="Center" alignItems="Center" alignContent="Center">
+                                 <FlexBox id="flexsem2" class="circle2" justifyContent="Center" alignItems="Center" alignContent="Center"> 
+                                  <Label text="" width="100%" id="Icuenta" textAlign="Center" vAlign="Middle"/>                               
+                                 </FlexBox>
+                                </FlexBox> 
+                                <Label text="" width="100%" id="Iselec" visible="true"/>                                
+                             </items> 
+				            </FlexBox>
+                          </Panel>  
+                        </VBox>
+                        <VBox>
+                          <Panel  headerText="Historial"  backgroundDesign="Solid"  class="Origen" expandable="true" expanded="true">
+                           <FlexBox width="100%" id="flexgrande"  alignItems="Center" alignContent="Center" backgroundDesign="Solid" displayInline="true" fitContainer="true" justifyContent="Center">
+                               <FlexBox width="80%" id="box54"  alignItems="Center" alignContent="Center" backgroundDesign="Solid">
+						         <Table noDataText="No hay Datos" items="{/results}" id="TblVacaciones" mode="None">
+											<ColumnListItem type="Active" id="item3" selected="true">
+                                                <cells><Text text="{TIPO}"/></cells>
+                                                <cells><Text text="{Begda}"/></cells>
+                                                <cells><Text text="{Endda}"/></cells>
+												<cells><Text text="{ANZHL}"/></cells>
+												<cells><Text text="{KVERB}"/></cells>
+												<cells><Text text="{SALDO}"/></cells>                                                                                                
+											</ColumnListItem>
+										<columns>
+                                             <Column id="column0" width="150px"><header><Label text="Tipo"/></header></Column>
+											 <Column id="column1" width="150px"><header><Label text="Desde"/></header></Column>
+											 <Column id="column2" width="150px"><header><Label text="Hasta"/></header></Column>
+                                             <Column id="column3" width="150px"><header><Label text="Vacaciones"/></header></Column>
+                                             <Column id="column4" width="150px"><header><Label text="Solicitadas"/></header></Column>
+                                             <Column id="column5" width="150px"><header><Label text="Por Gozar"/></header></Column>	
+										</columns>
+									</Table>
+                                </FlexBox>
+                            </FlexBox>                               
+                           </Panel>  
+                        </VBox>
+
+          <VBox>
+        <Panel  headerText="Cargar Vacaciones"  backgroundDesign="Solid"  class="Origen" expandable="true" expanded="true">
+            <FlexBox width="100%" justifyContent="Center" alignItems="Center" alignContent="Center">
+                <HBox id="filterbox" visible="true" width="50%" justifyContent="Center" alignContent="Center" alignItems="Center">
+
+                    <u:Calendar id="calendar" select="handleCalendarSelect" intervalSelection="true" weekNumberSelect="handleWeekNumberSelect"/>
+
+                    <VBox id="Fecha_Vert" visible="true" width="80%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                            <Label text="Fecha desde"/>
+                            <Text id="selectedDateFrom" text="Seleccionar"/>
+                            <Text id="selectedDateFrom2" text="" visible="false"/>
+                        <Label text="" id="Vacio"/>
+                            <Label text="Fecha hasta"/>
+                            <Text id="selectedDateTo" text="Seleccionar"/>
+                            <Text id="selectedDateTo2" text="" visible="false"/>                            
+                        <Label text="" id="Vacio1"/>
+                        <Label text="Cantidad total"/>
+                        <Text id="ICantidad" text="0"/>                        
+                        <Label text="" id="Vacio2"/>
+                        <Label text="Dias restantes"/>
+                        <Text id="IResto" text="0"/>
+                    </VBox>
+                   </HBox>
+               </FlexBox>
+            </Panel>   
+            </VBox>
+            <VBox>
+                <Panel  headerText="Vacaciones Aprobadas"  backgroundDesign="Solid"  class="Origen" expandable="true" expanded="true">
+                <FlexBox width="100%" class="cuadro1"  id="flexgrandeAp" alignItems="Center" alignContent="Center" backgroundDesign="Solid" displayInline="true" fitContainer="true" justifyContent="Center">
+                    <FlexBox width="80%" id="box54a" alignItems="Center" alignContent="Center" backgroundDesign="Solid">
+                        <Table noDataText="No hay Datos" items="{/results}" id="TblVacacionesAprob" mode="None">
+                                <ColumnListItem type="Active" id="item4" selected="true">
+                                    <cells><Text text="{Tipovaca}"/></cells>
+                                    <cells><Text text="{Fdesdetext}"/></cells>
+                                    <cells><Text text="{Fhastatext}"/></cells>
+                                    <cells><Text text="Aprobada"/></cells>
+                                </ColumnListItem>
+                            <columns>
+                                    <Column id="columna0" width="150px"><header><Label text="Tipo"/></header></Column>
+                                    <Column id="columna1" width="150px"><header><Label text="Desde"/></header></Column>
+                                    <Column id="columna2" width="150px"><header><Label text="Hasta"/></header></Column>
+                                    <Column id="columna3" width="150px"><header><Label text="Aprobada"/></header></Column>
+                            </columns>
+                        </Table>
+                    </FlexBox>
+                </FlexBox>                               
+                </Panel>  
+            </VBox>
+
+                    </content>
+				<footer>
+					<Toolbar width="100%" id="toolbar1">
+						<content>
+                            <Button xmlns="sap.m" text="Carga Vacaciones" press="_onchoseMessageBoxPress" type="Accept" icon="sap-icon://create-leave-request"/>
+                        </content>
+					</Toolbar>
+				</footer>                    
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

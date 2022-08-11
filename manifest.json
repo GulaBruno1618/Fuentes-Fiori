@@ -1,0 +1,130 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "zsap.vacaciones.solicvacaciones",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "ach": "ach",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZACHR_SOLICITUD_VACACIONES_SRV",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+		}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "zsap.vacaciones.solicvacaciones.view.Vacaciones_Main",
+      "type": "XML",
+      "async": true,
+      "id": "Vacaciones_Main"
+    },
+    "dependencies": {
+			"minUI5Version": "1.94.1",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "Inicial": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "None"
+				},
+				"dataSource": "mainService",
+				"preload": true
+            },                
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zsap.vacaciones.solicvacaciones.i18n.i18n"
+        }
+      },
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "zsap.vacaciones.solicvacaciones.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteVacaciones_Main",
+          "pattern": "RouteVacaciones_Main",
+          "target": ["TargetVacaciones_Main"]
+        },
+		{
+          "name": "CrearVacaciones",
+          "pattern": "CrearVacaciones/{Pendientes}/{Solicitada}",
+          "target": ["DetalleTaget"]
+		}  
+      ],
+      "targets": {
+        "TargetVacaciones_Main": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Vacaciones_Main"
+        },
+        "DetalleTaget": {
+            "viewType": "XML",
+            "transition": "slide",
+            "viewName": "DetalleVacas",
+            "viewLevel": 2
+        }
+      }
+    }
+  }
+}

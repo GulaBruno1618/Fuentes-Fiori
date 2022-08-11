@@ -1,0 +1,60 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+          xmlns="sap.m"
+          controllerName="zsap.vacaciones.solicvacaciones.controller.DetalleVacas" 
+          xmlns:u="sap.ui.unified"
+          displayBlock="true">
+<App id="app2">
+	<Page title="Solicitar Vacaciones" showNavButton="true" navButtonPress="onNavBack1()">
+		<content>
+
+                <FlexBox width="90%" id="box15" backgroundDesign="Solid">
+                    <items>
+                        <HBox width="240px" id="hboxa19" alignItems="Center" alignContent="Center">
+                        <items><Label text="Cantidad de días de vacaciones:" width="100%" id="labelvac" textAlign="Center" vAlign="Middle"/></items>
+                        </HBox>
+                        <HBox width="100px" id="hboxc19" alignItems="Center" alignContent="Center">
+                        <items><Input xmlns="sap.m" id="ipendientes" width="30px" editable="false"/></items>
+                        </HBox>
+                        <HBox width="240px" id="hboxa29" alignItems="Center" alignContent="Center">
+                        <items><Label text="Días pendiente de aprobación:" width="100%" id="labelsol" textAlign="Center" vAlign="Middle"/></items>
+                        </HBox>
+                        <HBox width="100px" id="hboxc29" alignItems="Center" alignContent="Center">
+                        <items><Input xmlns="sap.m" id="isolicitadas" width="30px" editable="false"/></items>
+                        </HBox>
+                        <HBox width="240px" id="hboxa39" alignItems="Center" alignContent="Center">
+                        <items><Label text="Días Disponibles:" width="100%" id="labeldias" textAlign="Center" vAlign="Middle"/></items>
+                        </HBox>
+                        <HBox width="100px" id="hboxc49" alignItems="Center" alignContent="Center">
+                        <items><Input xmlns="sap.m" id="IDias" width="30px" editable="false"/></items>
+                        </HBox>
+                    </items> 
+                </FlexBox>
+
+            <FlexBox width="100%" justifyContent="Center" alignItems="Center" alignContent="Center">
+                <HBox id="filterbox" visible="true" width="50%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                    <u:Calendar id="calendar" select="handleCalendarSelect" intervalSelection="true" weekNumberSelect="handleWeekNumberSelect"/>
+                    <VBox id="Fecha_Vert" visible="true" width="80%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                            <Label text="Fecha Desde"/>
+                            <Text id="selectedDateFrom" text="Seleccionar"/>
+                            <Text id="selectedDateFrom2" text="" visible="false"/>
+                        <Label text="" id="Vacio"/>
+                            <Label text="Fecha Hasta"/>
+                            <Text id="selectedDateTo" text="Seleccionar"/>
+                            <Text id="selectedDateTo2" text="" visible="false"/>
+                        <Label text="" id="Vacio1"/>
+                        <Label text="Cantidad Total"/>
+                        <Text id="ICantidad" text="0"/>
+                    </VBox>
+                </HBox>
+            </FlexBox>
+        </content>
+				<footer>
+					<Toolbar width="100%" id="toolbar1">
+						<content>
+							<Button xmlns="sap.m" text="Carga Vacaciones" press="onButtonCarga" type="Accept" icon="sap-icon://create-leave-request"/>
+						</content>
+					</Toolbar>
+				</footer>        
+	</Page>
+   </App> 
+ </mvc:View>
